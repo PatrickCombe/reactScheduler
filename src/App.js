@@ -10,7 +10,11 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+     borderRadius: '10px',
+     padding: '0px'
+     //height: '100px'
+
   }
 };
 
@@ -51,9 +55,9 @@ this
 
   backround(){
     if(this.state.name !=='' || this.state.phone !=='' ){
-      document.getElementById(this.props.time).style.backgroundColor = "#9ECEE2";
+      document.getElementById(this.props.time).style.backgroundColor = "#E3E3E3";
     } else {
-      document.getElementById(this.props.time).style.backgroundColor = "#3498DB  ";
+      document.getElementById(this.props.time).style.backgroundColor = "#FFFFFF  ";
     }
   }
 
@@ -74,18 +78,18 @@ this.backround()
   render(){
 console.log(this.state.modalIsOpen);
     return (
-      <div   onClick={this.openModal} id={this.props.time} style={{'borderStyle': 'solid',  width: '200px', margin: 'auto',  border: '2px solid #3D4D52', borderRadius: '10px', marginBottom: '5px ' }}>
-        <Modal
+      <button className='buttonNow' tooltip="Simple Tooltip"   onClick={this.openModal} id={this.props.time} style={{backgroundColor: '#FFFFFF', width: '200px', margin: 'auto',  border: '2px solid #FFFFFF', borderRadius: '7px', marginBottom: '5px ' }}>
+        <Modal tooltip="Simple Tooltip"
                   isOpen={this.state.modalIsOpen}
 
                   onRequestClose={this.closeModal}
 
                   style={customStyles}
                   >
-                  <div   style={{'borderStyle': 'solid',  width: '200px', margin: 'auto',  border: '3px solid blue' }}>
-                    <h4>{this.props.time}</h4>
+                  <div   style={{'borderStyle': 'solid',  width: '200px', margin: 'auto',  border: '3px solid white', }}>
+                    <h4 style={{textAlign: 'center'}}>{this.props.time}</h4>
                   <div>
-                <label>Name: </label>
+                <label style={{textAlign: 'left' , paddingRight: '3px'}}>Name:   </label>
                   <input
                     type="text"
                     value={this.state.name}
@@ -93,13 +97,16 @@ console.log(this.state.modalIsOpen);
                  />
                 </div>
                 <div>
-                  <label>Phone: </label>
+                  <label style={{textAlign: 'left'}}>Phone: </label>
                     <input  type="text"
                       value={this.state.phone}
                  onChange={(e)=>this.onChangePhone(e)}
                   />
                     </div>
-                    <button onClick={()=>this.update()}>Update</button>
+
+                        <button style={{textAlign: 'center'}} onClick={()=>this.update()}>Update</button>
+
+
 
                   </div>
          </Modal>
@@ -117,7 +124,7 @@ console.log(this.state.modalIsOpen);
 
 
 
-        </div>
+</button>
     )
   }
 }
@@ -134,9 +141,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App " style={{backgroundColor: '#3498DB    ', width: '500px', margin:'auto',  border: '10px solid #3D4D52', borderRadius: '20px'}}>
-          <h1 className="App-title">React Scheduler</h1>
-            
+      <div className="App " style={{backgroundColor: '#1EAFFC', width: '500px', margin:'auto',  border: '4px solid #FFFFFF', borderRadius: '18px'}}>
+          <h1 className="App-title">React Call Scheduler</h1>
+
         <Box time={'9am'} />
         <Box time={'10am'}/>
         <Box time={'11am'} />
